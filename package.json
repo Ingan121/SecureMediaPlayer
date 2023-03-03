@@ -1,0 +1,21 @@
+{
+  "name": "smp",
+  "version": "1.0.0",
+  "description": "\"Secure\" Media Player",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "",
+  "keywords": [
+    "Electron"
+  ],
+  "devDependencies": {
+    "electron": "^12.0.5",
+    "webpack": "^5.36.1",
+    "webpack-cli": "^4.6.0"
+  },
+  "dependencies": {
+    "vm-detection": "^1.0.1"
+  }
+}
