@@ -4,18 +4,49 @@
   "description": "\"Secure\" Media Player",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "deploy": "electron-builder --windows nsis:x64"
   },
   "repository": "",
   "keywords": [
     "Electron"
   ],
   "devDependencies": {
-    "electron": "^12.0.5",
+    "electron": "^23.1.1",
+    "electron-builder": "^22.10.3",
     "webpack": "^5.36.1",
     "webpack-cli": "^4.6.0"
   },
   "dependencies": {
     "vm-detection": "^1.0.1"
+  },
+  "build": {
+    "productName": "Secure Media Player",
+    "appId": "com.smp.smp",
+    "asar": true,
+	"files": "!smp.ico",
+    "win": {
+      "target": [
+        "zip",
+        "nsis"
+      ],
+      "icon": "./smp.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "directories": {
+      "buildResources": "./resources/installer/",
+      "output": "./dist/",
+      "app": "."
+    },
+    "fileAssociations": [
+      {
+        "ext": "sev",
+        "name": "Secure Video",
+        "role": "Viewer"
+      }
+    ]
   }
 }
